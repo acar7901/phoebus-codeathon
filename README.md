@@ -52,29 +52,15 @@ See: [documentation-tasks/](./documentation-tasks/)
 
 ## Getting Started
 
-### Prerequisites
-- Java Development Kit (JDK 11 or later)
-- Maven or Gradle
-- Git
-- IDE (Eclipse, IntelliJ IDEA, VS Code)
-- GitHub account
-
-### Clone the Main Repositories
-
-```bash
-git clone https://github.com/ControlSystemStudio/phoebus.git
-git clone https://github.com/Olog/phoebus-olog.git
-git clone https://github.com/ChannelFinder/ChannelFinderService.git
-git clone https://github.com/shroffk/epicsarchiverap.git
-git clone https://github.com/shroffk/epicsCoreJava.git
-```
+- Quick setup and pre-work: see [QUICK_START.md](./QUICK_START.md)
+- Documentation and links: see [RESOURCES.md](./RESOURCES.md)
 
 ---
 
 ## Communication
 
 - **Matrix Chat:** [#codeathon26:epics-controls.org](https://matrix.to/#/#codeathon26:epics-controls.org)
-- **Email:** shroffl@bnl.gov
+- **Email:** shroffk@bnl.gov
 
 ---
 
