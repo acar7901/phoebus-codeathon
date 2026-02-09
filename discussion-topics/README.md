@@ -7,8 +7,8 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 
 ## Discussion Format
 
-- **Duration:** Full day session (9:30 AM onwards)
-- **Participants:** Core developers and maintainers
+- **Duration:** 
+- **Participants:** Developers and maintainers
 - **Goal:** Strategic planning, architecture discussions, and technical decisions
 
 ---
@@ -20,7 +20,6 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 #### 1.1 Phoebus Framework Evolution
 - [ ] Future of the RCP (Rich Client Platform) architecture
 - [ ] Plugin system improvements and standardization
-- [ ] Application lifecycle management
 - [ ] Resource management and memory optimization
 - [ ] Cross-platform compatibility challenges (Windows, Linux, macOS)
 
@@ -32,18 +31,15 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 - [ ] Custom controls and widget library expansion
 
 #### 1.3 Build System & Dependencies
-- [ ] Maven vs Gradle considerations
 - [ ] Dependency management and version conflicts
 - [ ] Modularization strategy (Java modules/JPMS)
-- [ ] Build performance optimization
 - [ ] CI/CD pipeline improvements
 
 ---
 
-### 2. Middle Layer Services Integration
+### 2. Middle Layer Services
 
 #### 2.1 Service Architecture
-- [ ] Microservices vs monolithic approach for middle layer services
 - [ ] REST API standardization across services
 - [ ] Authentication and authorization strategy (OAuth2, JWT, LDAP)
 - [ ] Service discovery and registration
@@ -52,48 +48,34 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 #### 2.2 Archiver Service
 - [ ] Archive Appliance performance tuning
 - [ ] Data retrieval optimization strategies
-- [ ] Storage backend options (file system, databases, object storage)
-- [ ] Historical data migration patterns
-- [ ] Real-time vs historical data access patterns
+- [ ] Storage backend options
 
 #### 2.3 Olog Integration
-- [ ] Attachment handling and storage
 - [ ] Search and indexing improvements (Elasticsearch integration)
 - [ ] Template system enhancements
 - [ ] Integration with other services (ChannelFinder, Alarm)
 - [ ] Notification mechanisms
 
 #### 2.4 ChannelFinder Service
-- [ ] Channel metadata schema evolution
 - [ ] Property and tag management
-- [ ] Scalability for large installations (10K+ channels)
-- [ ] Synchronization with EPICS IOCs
-- [ ] Integration with save/restore functionality
+- [ ] Scalability for large installations (10M+ channels)
+- [ ] Integration with PVAccess and ChannelAccess Nameserver
 
 #### 2.5 Alarm Services
 - [ ] Alarm configuration management
-- [ ] Alarm hierarchy and propagation rules
 - [ ] Notification systems (email, SMS, messaging platforms)
 - [ ] Alarm history and analytics
-- [ ] Integration with Olog for alarm logging
 
 ---
 
 ### 3. Data Access & Performance
 
 #### 3.1 EPICS Core Java (PVA)
-- [ ] Protocol performance optimization
 - [ ] Connection management and reconnection strategies
-- [ ] Channel subscription memory management
-- [ ] Support for new data types and structures
 - [ ] Compatibility with EPICS 7 features
 
 #### 3.2 PV Access Layer
-- [ ] Unified data access abstraction
-- [ ] Support for multiple protocols (CA, PVA, local://, sim://)
-- [ ] Caching strategies and data flow
-- [ ] Error handling and resilience
-- [ ] Performance monitoring and diagnostics
+- [ ] ???
 
 ---
 
@@ -101,7 +83,6 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 
 #### 4.1 Code Quality & Standards
 - [ ] Coding standards and style guides
-- [ ] Code review process improvements
 - [ ] Static analysis tools integration
 - [ ] Unit testing and test coverage goals
 - [ ] Documentation standards
@@ -114,11 +95,7 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 - [ ] Migration guides and upgrade paths
 
 #### 4.3 Community Engagement
-- [ ] Contribution guidelines
-- [ ] New developer onboarding
-- [ ] Communication channels (GitHub, Matrix, mailing lists)
-- [ ] Feature request and issue triage process
-- [ ] Collaboration with other EPICS tools (CS-Studio legacy, EDM, etc.)
+- [ ] ???
 
 ---
 
@@ -127,9 +104,7 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 #### 5.1 Security Considerations
 - [ ] Secure communication channels (TLS/SSL)
 - [ ] Credential management (avoiding hardcoded passwords)
-- [ ] Security scanning and vulnerability management
 - [ ] Access control and permissions model
-- [ ] Audit logging
 
 #### 5.2 Deployment Strategies
 - [ ] Containerization (Docker, Kubernetes)
@@ -139,15 +114,13 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 
 ---
 
-### 6. Feature Roadmap & Prioritization
+### 6. Roadmap & Future Features
 
-#### 6.1 High-Priority Features
-- [ ] Cross-facility collaboration on feature priorities
-- [ ] Resource allocation for major features
+#### 6.1 Roadmap 
 - [ ] Timeline for major releases
 
-#### 6.2 Long-term Vision
-- [ ] Cloud-native deployment options
+
+#### 6.2 Future Features 
 - [ ] Web-based interfaces vs native applications
 - [ ] Mobile support considerations
 - [ ] AI/ML integration opportunities
@@ -156,21 +129,9 @@ This document outlines the technical discussion topics for the Phoebus Tools and
 ---
 
 ### 7. Technical Debt & Refactoring
-
 - [ ] Identification of major technical debt areas
 - [ ] Deprecated API removal strategy
 - [ ] Legacy code migration plans
-
----
-
-## Action Items Template
-
-For each topic discussed, capture:
-- **Decision Made:** 
-- **Owner:** 
-- **Timeline:** 
-- **Dependencies:** 
-- **Follow-up Required:** 
 
 ---
 

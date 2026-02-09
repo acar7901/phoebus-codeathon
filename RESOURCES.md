@@ -8,26 +8,25 @@ Quick links and resources for the Phoebus Tools and Services session.
 
 ### Phoebus
 - **Main Repository:** https://github.com/ControlSystemStudio/phoebus
-- **Documentation:** https://github.com/ControlSystemStudio/phoebus/tree/master/docs
-- **User Manual:** https://control-system-studio.readthedocs.io/
-- **Release Notes:** https://github.com/ControlSystemStudio/phoebus/releases
+- **Documentation:** https://control-system-studio.readthedocs.io/
 - **Issue Tracker:** https://github.com/ControlSystemStudio/phoebus/issues
 - **Discussions:** https://github.com/ControlSystemStudio/phoebus/discussions
 
 ### Phoebus-Olog
 - **Repository:** https://github.com/Olog/phoebus-olog
-- **Documentation:** https://github.com/Olog/phoebus-olog/wiki
-- **API Docs:** Check repository for Swagger/OpenAPI specs
+
+### Phoebus-Alarm-Services
+- **Repository:** https://github.com/ControlSystemStudio/phoebus/tree/master/services/
+
+### Phoebus-Save-Restore
+- **Repository:** https://github.com/ControlSystemStudio/phoebus/tree/master/services/alarm-server
 
 ### ChannelFinder Service
 - **Repository:** https://github.com/ChannelFinder/ChannelFinderService
-- **Documentation:** https://github.com/ChannelFinder/ChannelFinderService/wiki
-- **Client Libraries:** Available in multiple languages
 
 ### EPICS Archiver Appliance
-- **Repository:** https://github.com/shroffk/epicsarchiverap
-- **Documentation:** https://slacmshankar.github.io/epicsarchiver_docs/
-- **User Guide:** Check docs directory in repository
+- **Repository:** https://github.com/archiver-appliance/epicsarchiverap
+- **Documentation:** https://epicsarchiver.readthedocs.io/en/latest/
 
 ### EPICS Core Java
 - **Repository:** https://github.com/shroffk/epicsCoreJava
@@ -39,10 +38,8 @@ Quick links and resources for the Phoebus Tools and Services session.
 
 ### General EPICS
 - **EPICS Homepage:** https://epics-controls.org/
-- **EPICS Documentation:** https://docs.epics-controls.org/
 - **EPICS Base:** https://github.com/epics-base/epics-base
 - **EPICS Modules:** https://github.com/epics-modules
-- **Tech-Talk Archive:** https://epics.anl.gov/tech-talk/
 
 ### Learning EPICS
 - **Getting Started:** https://epics-controls.org/resources-and-support/documents/getting-started/
@@ -66,12 +63,6 @@ Quick links and resources for the Phoebus Tools and Services session.
 - **VS Code:** https://code.visualstudio.com/
   - Java Extension Pack: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
 
-### Version Control
-- **Git:** https://git-scm.com/
-  - Pro Git Book: https://git-scm.com/book/en/v2
-- **GitHub:** https://github.com/
-  - GitHub Guides: https://guides.github.com/
-
 ---
 
 ## Communication Channels
@@ -82,7 +73,6 @@ Quick links and resources for the Phoebus Tools and Services session.
 
 ### EPICS Community
 - **EPICS Chat:** https://epics-controls.org/epics-chat/
-- **Core Talk:** https://epics.anl.gov/core-talk/
 - **Tech Talk:** tech-talk@aps.anl.gov
 
 ---
@@ -103,13 +93,11 @@ Quick links and resources for the Phoebus Tools and Services session.
 
 ### Database
 - **Elasticsearch:** https://www.elastic.co/guide/index.html
-- **PostgreSQL:** https://www.postgresql.org/docs/
-- **H2 Database:** https://www.h2database.com/
+- **MongoDB:** https://www.mongodb.com/docs/
 
-### Web Technologies
-- **REST API Design:** https://restfulapi.net/
-- **OpenAPI Specification:** https://swagger.io/specification/
-- **JSON:** https://www.json.org/
+### Messaging / Streaming
+- **Apache Kafka:** https://kafka.apache.org/documentation/
+- **Kafka Streams:** https://kafka.apache.org/documentation/streams/
 
 ---
 
@@ -123,7 +111,6 @@ Quick links and resources for the Phoebus Tools and Services session.
 ### Code Quality
 - **SonarQube:** https://www.sonarqube.org/
 - **SpotBugs:** https://spotbugs.github.io/
-- **Checkstyle:** https://checkstyle.org/
 
 ---
 
@@ -146,16 +133,12 @@ Quick links and resources for the Phoebus Tools and Services session.
 ### Writing
 - **Markdown Guide:** https://www.markdownguide.org/
 - **reStructuredText:** https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-- **AsciiDoc:** https://asciidoc.org/
 
 ### Static Site Generators
 - **Sphinx:** https://www.sphinx-doc.org/
-- **MkDocs:** https://www.mkdocs.org/
-- **Jekyll:** https://jekyllrb.com/
 
 ### API Documentation
 - **Swagger UI:** https://swagger.io/tools/swagger-ui/
-- **ReDoc:** https://github.com/Redocly/redoc
 - **JavaDoc:** https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html
 
 ---
