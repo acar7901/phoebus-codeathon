@@ -1,0 +1,24 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Notes and personal files
+notes/
+personal/
+scratch/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
