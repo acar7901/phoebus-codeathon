@@ -136,6 +136,120 @@ Identify and prototype Virtual Threads (Project Loom) integration opportunities 
 
 ---
 
+### SERVICES-HEALTH-001: Standardize Health Endpoint Implementation
+
+**Repository:** Multiple (Olog, ChannelFinder, Save & Restore, Alarm Services)  
+**Difficulty:** Intermediate  
+**Estimated Time:** 2-3 days  
+**Skills Required:** Java, Spring Boot Actuator, Health Indicators  
+
+**Description:**  
+Standardize Spring Boot Actuator health endpoints across all Phoebus middle layer services to provide consistent health monitoring and enable reliable Kubernetes probes, load balancer health checks, and service mesh integration.
+
+- Implement custom `HealthIndicator` beans for service-specific health checks:
+  - Database connectivity (Elasticsearch, PostgreSQL, MongoDB)
+  - Kafka connectivity and topic availability
+  - External service dependencies (PVAccess, Git repositories)
+  - Disk space and memory thresholds
+- Configure `management.endpoint.health.show-details=when-authorized` with role-based access
+- Create health groups for Kubernetes liveness/readiness probes (`/actuator/health/liveness`, `/actuator/health/readiness`)
+- Add custom health status mappings (map service-specific error states to HTTP status codes)
+- Implement `management.endpoint.health.logging.slow-indicator-threshold` to log slow health checks
+- Document health endpoint structure and expected response formats
+- Add integration tests for health indicators with degraded state scenarios
+- Configure health endpoint exposure in `application.properties` consistently across all services
+
+**Resources:**
+- `services/alarm-logger/src/main/java/org/phoebus/alarm/logging/`
+- `services/save-and-restore/src/main/java/org/phoebus/service/saveandrestore/`
+- Phoebus-Olog: https://github.com/Olog/phoebus-olog
+- ChannelFinder: https://github.com/ChannelFinder/ChannelFinderService
+- Spring Boot Actuator Health: https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints.health
+
+**Assigned To:** _Available_
+
+---
+
+### SERVICES-SB4-001: Spring Boot 4 Migration Planning
+
+**Repository:** Multiple (Olog, ChannelFinder, Save & Restore)  
+**Difficulty:** Advanced  
+**Estimated Time:** 4-5 days  
+**Skills Required:** Java, Spring Boot 3/4, Migration Planning  
+
+**Description:**  
+Create comprehensive migration plan and proof-of-concept for upgrading Phoebus middle layer services from Spring Boot 3.x to Spring Boot 4.x, leveraging new features while ensuring backward compatibility.
+
+- Audit current Spring Boot 3.x usage across all services (dependencies, configurations, custom code)
+- Document breaking changes and deprecations in Spring Boot 4:
+  - Spring Security 7 authorization architecture changes
+  - RestTemplate deprecation (migrate to HTTP Interface clients)
+  - Configuration property changes
+  - Minimum Java version requirements (JDK 21+)
+- Create migration checklist with service-specific considerations:
+  - Update `pom.xml`/`build.gradle` dependencies
+  - Migrate security configurations to Spring Security 7 patterns
+  - Replace RestTemplate with declarative HTTP Interface clients
+  - Update actuator endpoint configurations
+- Implement pilot migration for one service (Save & Restore or Alarm Logger) as proof-of-concept
+- Test virtual threads integration with `spring.threads.virtual.enabled=true`
+- Leverage Problem Details (RFC 7807) for standardized error responses
+- Enable OpenTelemetry observability with `management.tracing.enabled=true`
+- Test native image compilation with GraalVM (if applicable)
+- Document rollback strategy and deployment considerations
+
+**Resources:**
+- Spring Boot 4 roadmap: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Release-Notes
+- Spring Boot 3.4 features: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes
+- Spring Security 7: https://docs.spring.io/spring-security/reference/7.0/migration/index.html
+- HTTP Interface clients: https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-http-interface
+
+**Assigned To:** _Available_
+
+---
+
+### SERVICES-VERSIONING-001: REST API Versioning Strategy
+
+**Repository:** Multiple (Olog, ChannelFinder, Save & Restore, Alarm Services)  
+**Difficulty:** Intermediate  
+**Estimated Time:** 3-4 days  
+**Skills Required:** Java, Spring Boot, REST API Design, Versioning Patterns  
+
+**Description:**  
+Implement consistent REST API versioning across all Phoebus middle layer services to support backward compatibility, gradual feature rollout, and deprecation policies without breaking existing clients.
+
+- Evaluate versioning strategies and select one approach:
+  - URL path versioning: `/api/v1/logs`, `/api/v2/logs` (recommended for clarity)
+  - Header-based versioning: `Accept: application/vnd.phoebus.v1+json`
+  - Query parameter versioning: `/api/logs?version=1`
+- Implement chosen strategy using Spring Boot features:
+  - `@RequestMapping` with version prefix
+  - Custom `RequestCondition` for header-based versioning
+  - Version-specific controller classes or methods
+- Create versioning policy document:
+  - When to introduce new version (breaking changes only)
+  - How long to support deprecated versions (e.g., N-2 policy)
+  - Version deprecation headers (`Deprecation`, `Sunset`)
+  - Migration guides for each version bump
+- Implement version negotiation with default version fallback
+- Add OpenAPI/Swagger documentation showing all supported versions
+- Update existing endpoints to v1, prepare v2 structure for future changes
+- Add integration tests covering multiple API versions simultaneously
+- Create client migration examples (Python, Java, curl)
+
+**Resources:**
+- REST API Versioning Best Practices: https://restfulapi.net/versioning/
+- Spring Boot REST versioning: https://www.baeldung.com/rest-versioning
+- OpenAPI versioning: https://swagger.io/docs/specification/api-general-info/
+- Existing service REST endpoints:
+  - Olog: https://github.com/Olog/phoebus-olog
+  - ChannelFinder: https://github.com/ChannelFinder/ChannelFinderService
+  - Alarm Logger: `services/alarm-logger/src/main/java/org/phoebus/alarm/logging/rest/`
+
+**Assigned To:** _Available_
+
+---
+
 ## Project Sign-up Sheet
 
 | Project ID | Title | Assigned To | Status | Notes |
@@ -144,6 +258,9 @@ Identify and prototype Virtual Threads (Project Loom) integration opportunities 
 | ALARM-KAFKA-002 | Resilient Topic Handling with Retry Logic | | Not Started | |
 | ALARM-REST-001 | Alarm Configuration REST API | | Not Started | |
 | PHOEBUS-VT-001 | Virtual Threads Integration Assessment | | Not Started | |
+| SERVICES-HEALTH-001 | Standardize Health Endpoint Implementation | | Not Started | |
+| SERVICES-SB4-001 | Spring Boot 4 Migration Planning | | Not Started | |
+| SERVICES-VERSIONING-001 | REST API Versioning Strategy | | Not Started | |
 
 ---
 
