@@ -149,14 +149,10 @@ Standardize Spring Boot Actuator health endpoints across all Phoebus middle laye
 - Implement custom `HealthIndicator` beans for service-specific health checks:
   - Database connectivity (Elasticsearch, PostgreSQL, MongoDB)
   - Kafka connectivity and topic availability
-  - External service dependencies (PVAccess, Git repositories)
   - Disk space and memory thresholds
-- Configure `management.endpoint.health.show-details=when-authorized` with role-based access
 - Create health groups for Kubernetes liveness/readiness probes (`/actuator/health/liveness`, `/actuator/health/readiness`)
 - Add custom health status mappings (map service-specific error states to HTTP status codes)
-- Implement `management.endpoint.health.logging.slow-indicator-threshold` to log slow health checks
 - Document health endpoint structure and expected response formats
-- Add integration tests for health indicators with degraded state scenarios
 - Configure health endpoint exposure in `application.properties` consistently across all services
 
 **Resources:**
@@ -195,7 +191,6 @@ Create comprehensive migration plan and proof-of-concept for upgrading Phoebus m
 - Test virtual threads integration with `spring.threads.virtual.enabled=true`
 - Leverage Problem Details (RFC 7807) for standardized error responses
 - Enable OpenTelemetry observability with `management.tracing.enabled=true`
-- Test native image compilation with GraalVM (if applicable)
 - Document rollback strategy and deployment considerations
 
 **Resources:**
@@ -250,6 +245,149 @@ Implement consistent REST API versioning across all Phoebus middle layer service
 
 ---
 
+### AI-DISPLAY-001: LLM-Assisted Display Screen Generation
+
+**Repository:** https://github.com/ControlSystemStudio/phoebus  
+**Difficulty:** Advanced  
+**Estimated Time:** 4-5 days  
+**Skills Required:** Python/Java, LLM APIs (OpenAI/Anthropic/local models), Display Builder, Prompt Engineering  
+
+**Description:**  
+Explore using Large Language Models (LLMs) to generate Phoebus Display Builder screens (.bob files) from natural language descriptions or existing OPI/EDL files, accelerating screen development and migration from legacy CS-Studio.
+
+- Research Display Builder XML/BOB file format structure:
+  - Widget types (Label, TextUpdate, ActionButton, LED, Rectangle, Group, etc.)
+  - Widget properties (position, size, PV names, colors, fonts)
+  - Layout patterns and parent-child relationships
+  - Rules, scripts, and actions
+- Create prompt templates for LLM-based screen generation:
+  - "Create a motor control screen with position readback, setpoint, start/stop buttons"
+  - "Convert this EDM/EDL screen to Display Builder format"
+  - "Generate a vacuum system overview with 12 gauge indicators arranged in a grid"
+- Implement generation pipeline:
+  - LLM API integration (OpenAI GPT-4, Claude, or local Llama models)
+  - Prompt engineering with few-shot examples of BOB XML
+  - XML validation and widget property verification
+  - Post-processing to fix common LLM errors (invalid colors, missing required properties)
+- Test with various complexity levels:
+  - Simple screens (5-10 widgets)
+  - Complex screens (100+ widgets, embedded displays, macros)
+- Document findings: success rates, limitations, best practices, cost analysis
+
+**Resources:**
+- Display Builder format: `app/display/model/src/main/resources/` (XSD schema)
+- Example displays: `app/display/model/src/main/resources/examples/`
+- Widget implementations: `app/display/representation-javafx/src/main/java/org/csstudio/display/builder/representation/javafx/widgets/`
+- LLM APIs: OpenAI, Anthropic Claude, Ollama (local), Hugging Face
+- Legacy conversion examples: EDM, MEDM, BOY formats for training data
+
+**Assigned To:** _Available_
+
+---
+
+### AI-DISPLAY-002: LLM-Based Display Screen CI/CD Validator
+
+**Repository:** New GitHub Actions / CI tools repository  
+**Difficulty:** Intermediate  
+**Estimated Time:** 3-4 days  
+**Skills Required:** Python, GitHub Actions, LLM APIs, Display Builder, XML parsing  
+
+**Description:**  
+Develop an LLM-powered automated validator for Display Builder screens (.bob files) that integrates into CI/CD pipelines to enforce design conventions, detect errors, and ensure quality standards before merging to production.
+
+- Implement validation engine with multiple checks:
+  - Static analysis: Schema validation, property ranges, XML correctness
+  - Convention enforcement: Naming patterns, layout standards, color palette, fonts
+  - LLM semantic analysis: "Does layout make sense?", "Are PV names consistent?", "Are labels clear?"
+  - Security: No hardcoded credentials, valid PV patterns
+  - Performance: Widget count limits, embedding depth
+  - Accessibility: Contrast ratios, text sizes
+- Create GitHub Actions workflow:
+  - Trigger on PRs with `.bob` file changes
+  - Post detailed reports and auto-fix suggestions as PR comments
+  - Configurable severity levels (error/warning/info)
+- Build configuration system:
+  - YAML-based facility-specific rules
+  - Custom validation patterns and LLM prompts
+  - Exemption mechanisms with justification
+- Generate reports:
+  - Markdown PR summaries with line numbers
+  - JSON output for programmatic use
+  - Metrics dashboard showing violation trends
+- Support multiple platforms: GitHub Actions, GitLab CI/CD, Jenkins, pre-commit hooks
+
+**Resources:**
+- GitHub Actions: https://docs.github.com/en/actions
+- GitHub API for PR comments: https://docs.github.com/en/rest/pulls/comments
+- Display Builder XSD: `app/display/model/src/main/resources/`
+- Python XML parsing: `lxml`, `xmlschema`
+- LLM APIs: OpenAI (with structured outputs), Claude (with tool use), local models
+- CI/CD examples: Super-Linter, actionlint, vale for similar validation patterns
+
+**Assigned To:** _Available_
+
+---
+
+### AI-ASSIST-001: LLM-Powered Phoebus Development Assistant
+
+**Repository:** New AI tools repository  
+**Difficulty:** Intermediate  
+**Estimated Time:** 3-4 days  
+**Skills Required:** Python, LLM APIs, RAG (Retrieval Augmented Generation), Vector Databases  
+
+**Description:**  
+Build an AI assistant that helps Phoebus developers by answering questions about the codebase, suggesting code patterns, and providing context-aware documentation using Retrieval Augmented Generation (RAG).
+
+- Create knowledge base from Phoebus ecosystem:
+  - Index Phoebus source code, JavaDoc, markdown documentation
+  - Index Display Builder widget API documentation
+  - Index common code patterns (service implementations, widget examples)
+  - Index GitHub issues, discussions, and wiki pages
+- Explore RAG pipeline:
+  - Document chunking and embedding (OpenAI embeddings or open-source alternatives)
+  - Semantic search for relevant context retrieval
+  - LLM integration (GPT-4, Claude, or local models like CodeLlama)
+  - Prompt construction with retrieved context
+- Support use cases:
+  - "How do I create a custom widget in Display Builder?"
+  - "What's the difference between AlarmTree and AlarmTable?"
+- Implement features:
+  - Citation links back to source code/docs
+  - Context window management for long conversations
+- Evaluate usefullness:
+  - Test on 20-30 common developer questions
+  - Measure answer accuracy and relevance
+  - Compare to manual documentation search time
+  - Collect user feedback on usefulness
+
+**Resources:**
+- RAG frameworks: LangChain, LlamaIndex, Haystack
+- Vector databases: ChromaDB, FAISS, Weaviate
+- Phoebus documentation: https://github.com/ControlSystemStudio/phoebus/tree/master/docs
+- Code embedding models: OpenAI `text-embedding-3`, `code-bison`, CodeBERT
+
+**Assigned To:** _Available_
+
+---
+
+### AI-LOG-001: Intelligent Log Analysis for Alarm Logs
+
+**Repository:** New AI/ML analysis tools  
+**Difficulty:** Intermediate  
+**Estimated Time:** 3 days  
+**Skills Required:** Java/Python, Log Parsing, Pattern Recognition  
+
+**Description:**  
+Apply natural language processing and pattern recognition to alarm service logs to automatically identify recurring issues, extract failure patterns, and provide actionable insights for control system behvaiour
+
+
+**Resources:**
+- ???
+
+**Assigned To:** _Available_
+
+---
+
 ## Project Sign-up Sheet
 
 | Project ID | Title | Assigned To | Status | Notes |
@@ -261,6 +399,10 @@ Implement consistent REST API versioning across all Phoebus middle layer service
 | SERVICES-HEALTH-001 | Standardize Health Endpoint Implementation | | Not Started | |
 | SERVICES-SB4-001 | Spring Boot 4 Migration Planning | | Not Started | |
 | SERVICES-VERSIONING-001 | REST API Versioning Strategy | | Not Started | |
+| AI-DISPLAY-001 | LLM-Assisted Display Screen Generation | | Not Started | |
+| AI-DISPLAY-002 | LLM-Based Display Screen CI/CD Validator | | Not Started | |
+| AI-ASSIST-001 | LLM-Powered Phoebus Development Assistant | | Not Started | |
+| AI-LOG-001 | Intelligent Log Analysis for Alarm Services | | Not Started | |
 
 ---
 
