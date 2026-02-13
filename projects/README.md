@@ -104,6 +104,35 @@ Create a REST API for the alarm configuration service that exposes read-only acc
 
 ---
 
+### ALARM-TOPICS-001: Centralized Kafka Topic Management Service
+
+**Repository:** https://github.com/ControlSystemStudio/phoebus  
+**Difficulty:** Intermediate  
+**Estimated Time:** 2-3 days  
+**Skills Required:** Java, Kafka Admin API, Refactoring  
+
+**Description:**  
+Refactor the alarm server's Kafka topic creation and configuration logic into a centralized utility class or service. Currently, topic management code is scattered across multiple locations (AlarmServerMain, AggregateTopics) with inconsistent patterns and configuration.
+
+- Create a dedicated `KafkaTopicManager` service class in the alarm-server module
+- Consolidate all topic creation logic from `AlarmServerMain` and `AggregateTopics` into the new service
+- Implement consistent topic configuration (partitions, replication factor, retention, cleanup policy)
+- Make topic attributes configurable via Phoebus preferences (replication factor, partitions, retention policy, backup settings)
+- Implement topic validation and health checks (verify topic exists, check configuration matches expectations)
+- Add logging for all topic operations with structured information
+- Add unit tests with embedded Kafka or mock AdminClient
+- Update `AlarmServerMain` and `AggregateTopics` to use the new service
+
+**Resources:**
+- `services/alarm-server/src/main/java/org/phoebus/applications/alarm/server/AlarmServerMain.java`
+- `services/alarm-server/src/main/java/org/phoebus/applications/alarm/server/AggregateTopics.java`
+- Kafka AdminClient API: https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/admin/AdminClient.html
+- Topic configuration: https://kafka.apache.org/41/documentation.html#topicconfigs
+
+**Assigned To:** _Available_
+
+---
+
 ### PHOEBUS-VT-001: Virtual Threads Integration Assessment
 
 **Repository:** https://github.com/ControlSystemStudio/phoebus  
@@ -425,6 +454,7 @@ Create a comprehensive Ansible collection with roles and playbooks for deploying
 | ALARM-KAFKA-001 | Enhanced Kafka Streams Error Handling | | Not Started | |
 | ALARM-KAFKA-002 | Resilient Topic Handling with Retry Logic | | Not Started | |
 | ALARM-REST-001 | Alarm Configuration REST API | | Not Started | |
+| ALARM-TOPICS-001 | Centralized Kafka Topic Management Service | | Not Started | |
 | PHOEBUS-VT-001 | Virtual Threads Integration Assessment | | Not Started | |
 | SERVICES-HEALTH-001 | Standardize Health Endpoint Implementation | | Not Started | |
 | SERVICES-SB4-001 | Spring Boot 4 Migration Planning | | Not Started | |
