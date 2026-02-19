@@ -118,6 +118,30 @@ Enhance the Phoebus alarm tree to display high and low alarm limits (HIHI, HIGH,
 
 ---
 
+### ALARM-UI-002: Improve Alarm Log Table Search/Query UI
+
+**Repository:** https://github.com/ControlSystemStudio/phoebus  
+**Difficulty:** Intermediate  
+**Estimated Time:** 2-3 days  
+**Skills Required:** JavaFX, REST APIs, UI/UX Design  
+
+**Description:**  
+Redesign the alarm log table search interface to be more intuitive and user-friendly. Current query string is unnecessarily verbose (`pv=*&alarm_severity=*&alarm_message=*&pv_severity=*&pv_message=*&user=*&host=*&command=*&start=7 days&end=now`) and difficult to construct.
+
+- Replace verbose query string with clean search form matching Logbook/Save & Restore UI patterns
+- Only include non-default parameters in queries (omit `field=*` wildcards)
+- Add intuitive controls: time range picker, severity dropdown, PV name field with autocomplete
+- Add saved search templates for common queries
+- Implement pagination or virtual scrolling for large result sets
+
+**Resources:**
+- `app/alarm/ui/src/main/java/org/phoebus/applications/alarm/ui/table/AlarmTableUI.java`
+- Reference Logbook UI: `app/logbook/ui/`
+
+**Assigned To:** _Available_
+
+---
+
 ### ALARM-TOPICS-001: Centralized Kafka Topic Management Service
 
 **Repository:** https://github.com/ControlSystemStudio/phoebus  
@@ -582,6 +606,7 @@ Create a training VM for Phoebus services and tools that complements the existin
 | ALARM-KAFKA-002 | Resilient Topic Handling with Retry Logic | | Not Started | |
 | ALARM-REST-001 | Alarm Configuration REST API | | Not Started | |
 | ALARM-UI-001 | Display High/Low Alarm Limits in Alarm Tree Tooltip | | Not Started | |
+| ALARM-UI-002 | Improve Alarm Log Table Search/Query UI | | Not Started | |
 | ALARM-TOPICS-001 | Centralized Kafka Topic Management Service | | Not Started | |
 | PHOEBUS-VT-001 | Virtual Threads Integration Assessment | | Not Started | |
 | PHOEBUS-UI-001 | Fix TimeRangePopover Relative Time Selection | | Not Started | |
