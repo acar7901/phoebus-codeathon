@@ -169,12 +169,12 @@ Phoebus services only publish documentation for the latest master branch. Users 
 Phoebus.org serves as the main landing page for the Phoebus ecosystem but has outdated links, missing information, and insufficient emphasis on community collaboration. The site needs updates to better serve as the entry point for users, developers, and contributors.
 
 **Tasks:**
-- [ ] **Update Links and References**:
-  - Audit all external links (GitHub repos, documentation sites, downloads)
-  - Update broken or outdated links
-  - Ensure links point to correct ReadTheDocs documentation
-  - Add links to all ecosystem services (ChannelFinder, Olog, Save & Restore, Alarm Services, Archiver Appliance)
-  - Fix links to community resources (Matrix chat, mailing lists, GitHub Discussions)
+- [x] **Update Links and References**:
+  - Audit all external links (GitHub repos, documentation sites, downloads) :white_check_mark:
+  - Update broken or outdated links :white_check_mark:
+  - Ensure links point to correct ReadTheDocs documentation :white_check_mark:
+  - Add links to all ecosystem services (Alarm Services, Archiver Appliance, ChannelFinder, Olog, Save & Restore) :question: (Might need to be updated after the Documentation was updated. Currently all links work as intended.)
+  - Fix links to community resources (Matrix chat, ~~mailing lists~~, GitHub Discussions) :white_check_mark:
 - [ ] **Add Missing Information**:
   - Complete service descriptions for all middleware services
   - Add "Getting Started" quickstart guide
