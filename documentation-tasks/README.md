@@ -195,8 +195,8 @@ Phoebus.org serves as the main landing page for the Phoebus ecosystem but has ou
 - Current site: https://phoebus.org (or phoebus-doc.readthedocs.io)
 - Discussion topic: [4.4 Documentation Strategy](discussion-topics/README.md#44-documentation-strategy)
 
-**Assigned To:** _Available_
-
+**Assigned To:**
+Anna
 ---
 
 ## User Documentation
