@@ -1,0 +1,58 @@
+# Phoebus Olog documentation
+
+Insert content here.
+
+```{toctree}
+:caption: Operator documentation
+:maxdepth: 3
+:glob:
+
+operator/tutorials/index
+operator/guides/index
+operator/explanations/index
+operator/references/index
+```
+
+```{toctree}
+:caption: Integrator documentation
+:maxdepth: 3
+:glob:
+
+integrator/tutorials/index
+integrator/guides/index
+integrator/explanations/index
+integrator/references/index
+```
+
+```{toctree}
+:caption: System admin documentation
+:maxdepth: 3
+:glob:
+
+sysadmin/tutorials/index
+sysadmin/guides/index
+sysadmin/explanations/index
+sysadmin/references/index
+```
+
+```{toctree}
+:caption: Developer documentation
+:maxdepth: 3
+:glob:
+
+developer/tutorials/index
+developer/guides/index
+developer/explanations/index
+developer/references/index
+```
+
+```{toctree}
+:caption: Contributor documentation
+:maxdepth: 3
+:glob:
+
+contributor/tutorials/index
+contributor/guides/index
+contributor/explanations/index
+contributor/references/index
+```
