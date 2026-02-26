@@ -22,7 +22,7 @@ This directory contains the list of development projects for the Phoebus tools a
 | [PHOEBUS-UI-002](#phoebus-ui-002-data-browser-archive-data-source-management) | Data Browser Archive Data Source Management | Intermediate | | Not Started |
 | [PHOEBUS-UI-003](#phoebus-ui-003-fix-pv-resource-leak-in-widgetruntime) | Fix PV Resource Leak in WidgetRuntime | Beginner | | Not Started |
 | [PHOEBUS-UI-004](#phoebus-ui-004-interactive-graph-widget-for-xyplot) | Interactive Graph Widget for XYPlot | Advanced | | Not Started |
-| [PHOEBUS-UI-005](#phoebus-ui-005-default-email-address-preferences) | Default Email Address Preferences | Beginner | | Not Started |
+| [PHOEBUS-UI-005](#phoebus-ui-005-default-email-address-preferences) | Default Email Address Preferences | Beginner | Anna | Not Started |
 | [PHOEBUS-UI-006](#phoebus-ui-006-remove-hardcoded-colors-for-css-consistency) | Remove Hardcoded Colors for Consistency | Intermediate | | Not Started |
 | [PHOEBUS-UI-007](#phoebus-ui-007-textentry-widget-autocomplete-suggestions) | TextEntry Widget Autocomplete Suggestions | Beginner | | Not Started |
 | [PHOEBUS-UI-008](#phoebus-ui-008-modernize-switch-statements-with-jdk-21-patterns) | Modernize Switch Statements with JDK 21 Patterns | Beginner | | Not Started |
@@ -332,7 +332,8 @@ Add preferences for default email addresses in the Phoebus send email dialog. Cu
 **Resources:**
 - GitHub Issue: https://github.com/ControlSystemStudio/phoebus/issues/3589
 
-**Assigned To:** _Available_
+**Assigned To:** 
+Anna
 
 ---
 
