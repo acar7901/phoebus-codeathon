@@ -126,7 +126,7 @@ Create a REST API for the alarm configuration service that exposes read-only acc
 - Add OpenAPI/Swagger documentation
 - Implement proper HTTP status codes (404 for missing nodes)
 
-**Assigned To:** _Available_
+**Assigned To:** _Anthony Carriveau_
 
 ---
 
